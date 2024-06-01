@@ -1,7 +1,16 @@
 {
   "menu": [
     {
-      "menuHeader": "Dashboard"
+      "menuHeader": "Beranda"
+    },
+    {
+      "url": "hairaneeds",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons mdi mdi-home-outline",
+      "slug": "dashboard"
+    },
+    {
+      "menuHeader": "Kelola"
     },
     {
       "name": "Penjualan",
@@ -9,17 +18,17 @@
       "slug": "penjualan",
       "submenu": [
         {
-          "url": "penjualan/tambah",
+          "url": "hairaneeds/penjualan/tambah",
           "name": "Form Penjualan",
           "slug": "pages-form-penjualan"
         },
         {
-          "url": "penjualan",
+          "url": "hairaneeds/penjualan",
           "name": "Data Penjualan",
           "slug": "pages-data-penjualan"
         },
         {
-          "url": "penjualan/detailPenjualan",
+          "url": "hairaneeds/penjualan/detailPenjualan",
           "name": "Data Detail Penjualan",
           "slug": "pages-data-detail-penjualan"
         }
@@ -31,17 +40,17 @@
       "slug": "pembelian",
       "submenu": [
         {
-          "url": "pembelian/tambah",
+          "url": "hairaneeds/pembelian/tambah",
           "name": "Form Pembelian",
           "slug": "pages-form-pembelian"
         },
         {
-          "url": "pembelian",
+          "url": "hairaneeds/pembelian",
           "name": "Data Pembelian",
           "slug": "pages-data-pembelian"
         },
         {
-          "url": "pembelian/detailPembelian",
+          "url": "hairaneeds/pembelian/detailPembelian",
           "name": "Data Detail Pembelian",
           "slug": "pages-data-detail-pembelian"
         }
@@ -53,12 +62,12 @@
       "slug": "barang",
       "submenu": [
         {
-          "url": "barang/tambah",
+          "url": "hairaneeds/barang/tambah",
           "name": "Form Tambah Barang",
           "slug": "pages-form-barang"
         },
         {
-          "url": "barang",
+          "url": "hairaneeds/barang",
           "name": "Data Barang",
           "slug": "pages-data-barang"
         }
@@ -70,12 +79,12 @@
       "slug": "customer",
       "submenu": [
         {
-          "url": "customer/tambah",
+          "url": "hairaneeds/customer/tambah",
           "name": "Form Customer",
           "slug": "pages-form-customer"
         },
         {
-          "url": "customer",
+          "url": "hairaneeds/customer",
           "name": "Data Customer",
           "slug": "pages-data-customer"
         }
@@ -87,12 +96,12 @@
       "slug": "vendor",
       "submenu": [
         {
-          "url": "vendor/tambah",
+          "url": "hairaneeds/vendor/tambah",
           "name": "Form Vendor",
           "slug": "pages-form-vendor"
         },
         {
-          "url": "vendor",
+          "url": "hairaneeds/vendor",
           "name": "Data Vendor",
           "slug": "pages-data-vendor"
         }

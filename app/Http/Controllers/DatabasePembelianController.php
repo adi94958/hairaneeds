@@ -18,36 +18,48 @@ class DatabasePembelianController extends Controller
 
     public function dataTable(Request $request)
     {
-        if ($request->ajax()) {
-            $data = DatabasePembelian::with('vendor')->latest()->get();
+        try {
+            if ($request->ajax()) {
+                $data = DatabasePembelian::with('vendor', 'pembelianDetail')->latest()->get();
 
-            return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn('vendor.kode_vendor', function ($row) {
-                    return $row->vendor->kode_vendor;
-                })
-                ->addColumn('vendor.nama_vendor', function ($row) {
-                    return $row->vendor->nama_vendor;
-                })
-                ->addColumn('vendor.alamat', function ($row) {
-                    return $row->vendor->alamat;
-                })
-                ->addColumn('vendor.no_telp', function ($row) {
-                    return $row->vendor->no_telp;
-                })
-                ->addColumn('options', function ($pembelian) {
-                    $deleteUrl = route('pembelian.destroy', $pembelian->kode_transaksi); // Assuming 'destroy' is the route name for deleting a 'vendor'
-                    return "
+                return DataTables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('vendor.kode_vendor', function ($row) {
+                        return $row->vendor->kode_vendor;
+                    })
+                    ->addColumn('vendor.nama_vendor', function ($row) {
+                        return $row->vendor->nama_vendor;
+                    })
+                    ->addColumn('vendor.alamat', function ($row) {
+                        return $row->vendor->alamat;
+                    })
+                    ->addColumn('vendor.no_telp', function ($row) {
+                        return $row->vendor->no_telp;
+                    })
+                    ->addColumn('total_harga', function ($row) {
+                        // Calculate total harga
+                        $totalHarga = $row->pembelianDetail->sum(function ($detail) {
+                            return $detail->jumlah * $detail->barang->harga_beli;
+                        });
+                        return 'Rp ' . number_format($totalHarga, 0, ',', '.');
+                    })
+                    ->addColumn('options', function ($pembelian) {
+                        $deleteUrl = route('pembelian.destroy', $pembelian->kode_transaksi); // Assuming 'destroy' is the route name for deleting a 'vendor'
+                        return "
                     <button style='border: none; background-color:transparent; color: red;' class='hapusData' data-id='$pembelian->kode_transaksi' data-url='$deleteUrl'>
                         <i class='mdi mdi-delete mdi-24px'></i>
                     </button>
                 ";
-                })
-                ->rawColumns(['options'])
-                ->make(true);
+                    })
+                    ->rawColumns(['options'])
+                    ->make(true);
+            }
+            return response()->json(['message' => 'Unauthorized'], 403);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
         }
-        return response()->json(['message' => 'Unauthorized'], 403);
     }
+
 
     public function tambahPembelian(Request $request)
     {

@@ -1,13 +1,21 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Dashboard - Analytics')
+@section('title', 'Ubah Customer')
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <h1>Ubah Customer</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('home') }}">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item active">Ubah Customer</li>
+                </ol>
             </div>
         </div>
     </div>

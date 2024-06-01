@@ -30,25 +30,8 @@ class DatabasePembelianDetailController extends Controller
                 ->addColumn('barang.harga_jual', function ($row) {
                     return $row->barang->harga_beli;
                 })
-                ->addColumn('options', function ($detailPembelian) {
-                    $deleteUrl = route('pembelian.destroy', $detailPembelian->kode_transaksi);
-                    return "
-                        <button style='border: none; background-color:transparent; color: red;' class='hapusData' data-id='$detailPembelian->kode_transaksi' data-url='$deleteUrl'>
-                            <i class='mdi mdi-delete mdi-24px'></i>
-                        </button>
-                    ";
-                })
-                ->rawColumns(['options'])
                 ->make(true);
         }
         return response()->json(['message' => 'Unauthorized'], 403);
-    }
-
-    public function hapusPembelian($kode_transaksi)
-    {
-        $pembelian = DatabasePembelian::findOrFail($kode_transaksi);
-        $pembelian->delete();
-
-        return response()->json(['msg' => 'Data Pembelian berhasil dihapus.']);
     }
 }

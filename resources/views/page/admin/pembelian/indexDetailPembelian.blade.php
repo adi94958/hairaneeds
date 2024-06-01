@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Dashboard - Analytics')
+@section('title', 'Data Detail Pembelian')
 @section('script_head')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -13,13 +13,20 @@
             <div class="col-sm-6">
                 <h1>Data Detail Pembelian</h1>
             </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('home') }}">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item active">Detail Pembelian</li>
+                </ol>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Main content -->
 <section class="content">
-
     <!-- Default box -->
     <div class="card">
         <div class="card-body p-0" style="margin: 20px">
@@ -31,7 +38,6 @@
                         <th>Nama Barang</th>
                         <th>Harga Beli</th>
                         <th>Total</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -79,9 +85,6 @@
                 },
                 {
                     "data": "jumlah"
-                },
-                {
-                    "data": "options"
                 }
             ],
             "language": {

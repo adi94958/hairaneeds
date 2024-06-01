@@ -1,13 +1,21 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Dashboard - Analytics')
+@section('title', 'Form Penjualan')
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
+            <div class="col-sm-12">
+                <h1>Form Penjualan</h1>
+            </div>
             <div class="col-sm-6">
-                <h1>Tambah Penjualan</h1>
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('home') }}">Beranda</a>
+                    </li>
+                    <li class="breadcrumb-item active">Form Penjualan</li>
+                </ol>
             </div>
         </div>
     </div>
@@ -101,7 +109,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <button type="button" id="add-item" class="btn btn-primary mt-2">Tambah Barang</button>
+                            <button type="button" id="add-item" class="btn btn-primary mt-2">Form Barang</button>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -112,7 +120,7 @@
         <div class="row">
             <div class="col-6 mt-4 d-flex justify-content-between">
                 <a href="{{ route('penjualan.index') }}" class="btn btn-secondary">Cancel</a>
-                <button type="submit" class="btn btn-success float-right">Tambah Penjualan</button>
+                <button type="submit" class="btn btn-success float-right">Form Penjualan</button>
             </div>
         </div>
     </form>

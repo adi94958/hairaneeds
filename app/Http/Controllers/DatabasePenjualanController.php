@@ -19,7 +19,7 @@ class DatabasePenjualanController extends Controller
     public function dataTable(Request $request)
     {
         if ($request->ajax()) {
-            $data = DatabasePenjualan::with('customer')->latest()->get();
+            $data = DatabasePenjualan::with('customer', 'penjualanDetail')->latest()->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -34,6 +34,13 @@ class DatabasePenjualanController extends Controller
                 })
                 ->addColumn('customer.no_telp', function ($row) {
                     return $row->customer->no_telp;
+                })
+                ->addColumn('total_harga', function ($row) {
+                    // Calculate total harga
+                    $totalHarga = $row->penjualanDetail->sum(function ($detail) {
+                        return $detail->jumlah * $detail->barang->harga_jual;
+                    });
+                    return 'Rp ' . number_format($totalHarga, 0, ',', '.');
                 })
                 ->addColumn('options', function ($penjualan) {
                     $deleteUrl = route('penjualan.destroy', $penjualan->kode_transaksi);
