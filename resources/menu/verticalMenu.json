@@ -1,0 +1,102 @@
+{
+  "menu": [
+    {
+      "menuHeader": "Dashboard"
+    },
+    {
+      "name": "Penjualan",
+      "icon": "menu-icon tf-icons mdi mdi-cart-outline",
+      "slug": "penjualan",
+      "submenu": [
+        {
+          "url": "penjualan/tambah",
+          "name": "Form Penjualan",
+          "slug": "pages-form-penjualan"
+        },
+        {
+          "url": "penjualan",
+          "name": "Data Penjualan",
+          "slug": "pages-data-penjualan"
+        },
+        {
+          "url": "penjualan/detailPenjualan",
+          "name": "Data Detail Penjualan",
+          "slug": "pages-data-detail-penjualan"
+        }
+      ]
+    },
+    {
+      "name": "Pembelian",
+      "icon": "menu-icon tf-icons mdi mdi-basket-outline",
+      "slug": "pembelian",
+      "submenu": [
+        {
+          "url": "pembelian/tambah",
+          "name": "Form Pembelian",
+          "slug": "pages-form-pembelian"
+        },
+        {
+          "url": "pembelian",
+          "name": "Data Pembelian",
+          "slug": "pages-data-pembelian"
+        },
+        {
+          "url": "pembelian/detailPembelian",
+          "name": "Data Detail Pembelian",
+          "slug": "pages-data-detail-pembelian"
+        }
+      ]
+    },
+    {
+      "name": "Barang",
+      "icon": "menu-icon tf-icons mdi mdi-package-variant-closed",
+      "slug": "barang",
+      "submenu": [
+        {
+          "url": "barang/tambah",
+          "name": "Form Tambah Barang",
+          "slug": "pages-form-barang"
+        },
+        {
+          "url": "barang",
+          "name": "Data Barang",
+          "slug": "pages-data-barang"
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "icon": "menu-icon tf-icons mdi mdi-account-outline",
+      "slug": "customer",
+      "submenu": [
+        {
+          "url": "customer/tambah",
+          "name": "Form Customer",
+          "slug": "pages-form-customer"
+        },
+        {
+          "url": "customer",
+          "name": "Data Customer",
+          "slug": "pages-data-customer"
+        }
+      ]
+    },
+    {
+      "name": "Vendor",
+      "icon": "menu-icon tf-icons mdi mdi-store-outline",
+      "slug": "vendor",
+      "submenu": [
+        {
+          "url": "vendor/tambah",
+          "name": "Form Vendor",
+          "slug": "pages-form-vendor"
+        },
+        {
+          "url": "vendor",
+          "name": "Data Vendor",
+          "slug": "pages-data-vendor"
+        }
+      ]
+    }
+  ]
+}
